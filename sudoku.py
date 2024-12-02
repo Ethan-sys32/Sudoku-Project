@@ -213,8 +213,8 @@ def main():
                     value = event.key - pygame.K_0
                     board.sketch(value)
                 elif event.key == pygame.K_RETURN:
-                    if board.selected_cell and board.selected_cell.sketched_value:
-                        board.place_number(board.selected_cell.sketched_value)
+                    if board.selected_cell and board.selected_cell.temporary_value:
+                        board.place_number(board.selected_cell.temporary_value)
 
         if board.is_full():
             if board.check_board():

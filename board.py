@@ -43,13 +43,13 @@ class Board:
     def sketch(self, value):
         # Add a temporary value to a cell
         if self.selected_cell and self.selected_cell.value == 0:
-            self.selected_cell.set_sketched_value(value)
+            self.selected_cell.set_temporary_value(value)
 
     def place_number(self, value):
         # Set a value in a cell
         if self.selected_cell and self.selected_cell.value == 0:
             self.selected_cell.set_cell_value(value)
-            self.selected_cell.sketched_value = None
+            self.selected_cell.temporary_value = None
             self.update_board()
 
     def reset_to_original(self):
@@ -57,7 +57,7 @@ class Board:
         for row in range(9):
             for col in range(9):
                 self.cells[row][col].value = self.original_board[row][col]
-                self.cells[row][col].sketched_value = None
+                self.cells[row][col].temporary_value = None
 
     def is_full(self):
         # Check if the board is complete
